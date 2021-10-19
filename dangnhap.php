@@ -24,9 +24,9 @@ if(isset($_POST['btnLogin']))
 	}
 	else
 	{
-		$Username = mysqli_real_escape_string($Connect, $Username);
+		$Username = pg_escape_string($Connect, $Username);
 		$Password = md5($Password);
-		$result = mysqli_query($Connect,"SELECT * FROM khachhang WHERE KH_User='$Username' AND KH_Password='$Password' AND KH_TrangThai = 1") or die(mysqli_error($Connect));
+		$result = pg_query($Connect,"SELECT * FROM public.khachhang WHERE KH_User='$Username' AND KH_Password='$Password' AND KH_TrangThai = 1") or die(pg_result_error($conn));
 		if(mysqli_num_rows($result)==1)
 		{
 			echo "<script>setTimeout(function(){showSwalLogin('$Username');},100);</script>";
