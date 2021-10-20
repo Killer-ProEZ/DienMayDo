@@ -3,7 +3,7 @@ if(isset($_GET['User']) && isset($_GET['MaKH']))
 {
 	$User = $_GET['User'];
 	$MaKH = $_GET['MaKH'];
-	$Kiemtra = pg_query($Connect,"SELECT * FROM khachhang WHERE KH_User = '$User' AND KH_MaKichHoat = '$MaKH'");
+	$Kiemtra = pg_query($Connect,"SELECT * FROM public.khachhang WHERE KH_User = '$User' AND KH_MaKichHoat = '$MaKH'");
 	if(mysqli_num_rows($Kiemtra)>0)
 	{
 		mysqli_query($Connect,"UPDATE khachhang SET KH_TrangThai = 1 WHERE KH_User = '$User'");
