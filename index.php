@@ -288,7 +288,7 @@
 				<ul class="main-nav nav navbar-nav">
 					<li class="active"><a href="index.php">Home</a></li>
 					<?php
-					$Menu = pg_query($Connect, "SELECT LSP_Ten,LSP_Ma FROM public.loaisanpham");
+					$Menu = pg_query($Connect, "SELECT lsp_ten,lsp_ma FROM public.loaisanpham");
 					while ($RowMenu = pg_fetch_array($Menu)) {
 					?>
 						<li><a href="?ID=<?php if ($RowMenu['lsp_ma'] == 1) {
